@@ -15,13 +15,12 @@ describe("E2E test for Product", () => {
         const response = await request(app)
             .post("/product")
             .send({
-                type: "a",
-                name: "Product A",
+                name: "Product",
                 price: 10.5
             });
 
         expect(response.status).toBe(200);
-        expect(response.body.name).toBe("Product A");
+        expect(response.body.name).toBe("Product");
         expect(response.body.price).toBe(10.5);
     });
 
@@ -36,7 +35,6 @@ describe("E2E test for Product", () => {
         const response = await request(app)
             .post("/product")
             .send({
-                type: "a",
                 name: "Product A",
                 price: 5.5
             });
@@ -44,7 +42,6 @@ describe("E2E test for Product", () => {
         const response2 = await request(app)
             .post("/product")
             .send({
-                type: "b",
                 name: "Product B",
                 price: 6.99
             });
@@ -59,7 +56,7 @@ describe("E2E test for Product", () => {
         expect(product.price).toBe(5.5);
         const product2 = listResponse.body.products[1];
         expect(product2.name).toBe("Product B");
-        expect(product2.price).toBe(6.99 * 2);
+        expect(product2.price).toBe(6.99);
 
     });
 });

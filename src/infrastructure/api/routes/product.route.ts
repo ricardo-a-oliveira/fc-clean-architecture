@@ -11,7 +11,6 @@ productRoute.post("/", async (req: Request, res: Response) => {
     
     try {
         const input = {
-            type: req.body.type,
             name: req.body.name,
             price: req.body.price,
         }
